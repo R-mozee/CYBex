@@ -1,0 +1,39 @@
+{
+  "manifest_version": 3,
+  "name": "CYBex",
+  "version": "1.0",
+  "description": "AI-powered risk explanation and website blocking.",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://www.ipqualityscore.com/*",
+    "https://safebrowsing.googleapis.com/*",
+    "https://generativelanguage.googleapis.com/*",  // Gemini API endpoint
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon.png",
+      "48": "icons/icon.png",
+      "128": "icons/icon.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon.png",
+    "48": "icons/icon.png",
+    "128": "icons/icon.png"
+  }
+}
